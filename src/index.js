@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import App from "./App";
 
-ReactDOM.render(
-  <h1>Create React App with Webpack Config</h1>,
-  document.getElementById("root")
-);
+// Opt-in to Webpack hot module replacement
+// if (module.hot) module.hot.accept();
+
+ReactDOM.render(<App />, document.getElementById("root"));

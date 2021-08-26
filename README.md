@@ -5,6 +5,7 @@
 - [Setup React](#setup-react)
 - [Setup Webpack & Babel](#setup-webpack--babel)
 - [Create Scripts](#create-scripts)
+- [Webpack Loaders](#webpack-loaders)
 
 # Setup React
 
@@ -110,3 +111,11 @@ Add scripts to package.json that will allow you to build and run the app:
 - Run locally: ` npm run dev`
 
 - Build bundle:` npm run dev`
+
+# Webpack Loaders
+
+Highly recommended webpack loaders:
+
+- **style-loader** Add exports of a module as style to DOM
+- **css-loader** Loads CSS file with resolved imports and returns CSS code
+- **sass-loader** Loads and compiles a SASS/SCSS file

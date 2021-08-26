@@ -110,6 +110,14 @@
 
 Add scripts to package.json that will allow you to build and run the app:
 
+```
+"scripts": {
+  "dev": "webpack serve",
+  "build": "webpack",
+  ...
+}
+```
+
 - Run locally: `npm run dev`
 
 - Build bundle: `npm run dev`

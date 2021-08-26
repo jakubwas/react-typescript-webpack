@@ -15,7 +15,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.?js$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
@@ -25,17 +25,18 @@ module.exports = {
         },
       },
       {
-        test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        test: /\.(css|scss)$/,
+        exclude: /node_modules/,
+        use: ["style-loader", "css-loader", "sass-loader"],
       },
-      {
-        test: /\.(png|jp(e*)g|svg|gif)$/,
-        use: ["file-loader"],
-      },
-      {
-        test: /\.svg$/,
-        use: ["@svgr/webpack"],
-      },
+      // {
+      //   test: /\.(png|jp(e*)g|svg|gif)$/,
+      //   use: ["file-loader"],
+      // },
+      // {
+      //   test: /\.svg$/,
+      //   use: ["@svgr/webpack"],
+      // },
     ],
   },
   plugins: [

@@ -7,6 +7,7 @@ const MainPage = () => {
     <StyledMainPage>
       <StyledImage src={webpackImage} />
       <StyledHeader>React App with Webpack Config</StyledHeader>
+      <StyledHeader>{process.env.API_URL}</StyledHeader>
     </StyledMainPage>
   );
 };

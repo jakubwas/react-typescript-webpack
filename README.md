@@ -6,10 +6,12 @@
 - [Setup Webpack & Babel](#setup-webpack--babel)
 - [Create Scripts](#create-scripts)
 - [Webpack Loaders](#webpack-loaders)
+  - [Styling](#styling)
+  - [File](#file)
 
 # Setup React
 
-- Create package.json file in the root directory:
+- Create _package.json_ file in the root directory:
 
   `git init .`
 
@@ -23,7 +25,7 @@
 
   `npm install react react-dom`
 
-- Add the code below to src/App.js file:
+- Add the code below to _src/App.js_ file:
 
   ```
     import React from "react";
@@ -35,7 +37,7 @@
     export default App;
   ```
 
-- Add the code below to src/index.html file:
+- Add the code below to _src/index.html_ file:
 
   ```
   <!DOCTYPE html>
@@ -51,7 +53,7 @@
     </html>
   ```
 
-- Add the code below to src/index.js file:
+- Add the code below to _src/index.js_ file:
 
   ```
     import React from 'react';
@@ -108,14 +110,38 @@
 
 Add scripts to package.json that will allow you to build and run the app:
 
-- Run locally: ` npm run dev`
+- Run locally: `npm run dev`
 
-- Build bundle:` npm run dev`
+- Build bundle: `npm run dev`
 
 # Webpack Loaders
+
+## Styling
 
 Highly recommended webpack loaders:
 
 - **style-loader** Add exports of a module as style to DOM
+
 - **css-loader** Loads CSS file with resolved imports and returns CSS code
+
 - **sass-loader** Loads and compiles a SASS/SCSS file
+
+**Instalation:**
+
+`npm install --save-dev style-loader css-loader sass-loader `
+
+**Configuration:**
+
+```
+  {
+    test: /\.(css|scss)$/,
+    exclude: /node_modules/,
+    use: ["style-loader", "css-loader", "sass-loader"],
+  }
+```
+
+## File
+
+- **file-loader**
+
+- **@svgr/webpack**

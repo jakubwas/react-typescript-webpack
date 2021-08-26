@@ -13,7 +13,7 @@
 
 - Create _package.json_ file in the root directory:
 
-  `git init .`
+  `npm init`
 
 - Create src folder and add three files there:
 
@@ -118,7 +118,7 @@ Add scripts to package.json that will allow you to build and run the app:
 
 ## Styling
 
-Highly recommended webpack loaders:
+Highly recommended webpack styling loaders:
 
 - **style-loader** Add exports of a module as style to DOM
 
@@ -142,6 +142,19 @@ Highly recommended webpack loaders:
 
 ## File
 
+Highly recommended webpack file loaders:
+
 - **file-loader**
 
-- **@svgr/webpack**
+**Installation:**
+
+`npm install --save-dev file-loader`
+
+**Configuration:**
+
+```
+ {
+    test: /\.(png|jp(e*)g|svg|gif)$/,
+    use: ["file-loader"],
+  }
+```

@@ -1,8 +1,9 @@
-# Step by Step Guide to setup React with Webpack
+## Step by Step Guide to setup React with Webpack
 
 ## Table of contents
 
 - [Setup React](#setup-react)
+- [Setup Webpack & Babel](#setup-webpack--babel)
 
 # Setup React
 
@@ -59,4 +60,44 @@
         <App />,
       document.getElementById('root')
     );
+  ```
+
+# Setup Webpack & Babel
+
+- Install Webpack:
+
+  ` npm install webpack webpack-cli webpack-dev-server html-webpack-plugin --save-dev`
+
+- Install Babel:
+
+  ` npm install @babel/core babel-loader --save-dev`
+
+- Create webpack.config.js file:
+
+  ```
+    module.exports = {
+      entry: path.join(__dirname, "src", "index.js"),
+      output: {
+        path:path.resolve(__dirname, "dist"),
+      },
+      module: {
+        rules: [
+          {
+            test: /\.?js$/,
+            exclude: /node_modules/,
+            use: {
+              loader: "babel-loader",
+              options: {
+                presets: ['@babel/preset-env', '@babel/preset-react']
+              }
+            }
+          },
+        ]
+      },
+      plugins: [
+        new HtmlWebpackPlugin({
+          template: path.join(__dirname, "src", "index.html"),
+        }),
+      ],
+    }
   ```

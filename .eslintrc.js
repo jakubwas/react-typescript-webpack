@@ -26,4 +26,12 @@ module.exports = {
     ],
   },
   ignorePatterns: ['*.html'],
+  extends: ['plugin:import/recommended'],
+  settings: {
+    'import/resolver': {
+      alias: {
+        map: [['@', path.resolve(__dirname, 'src')]],
+      },
+    },
+  },
 };

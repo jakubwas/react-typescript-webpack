@@ -17,3 +17,8 @@ export const StyledImage = styled.img`
   margin: 40px 0;
   width: 700px;
 `;
+
+export const StyledWebpackConfig = styled.div`
+  margin-top: 30px;
+`;
+

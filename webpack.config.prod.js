@@ -18,6 +18,13 @@ module.exports = () => {
       path: path.resolve(__dirname, 'dist'),
     },
     mode: 'production',
+    resolve: {
+      extensions: ['', '.js', '.jsx'],
+      alias: {
+        '@': path.resolve(__dirname, 'src'),
+        '@components': path.resolve(__dirname, 'src/components'),
+      },
+    },
     module: {
       rules: [
         {

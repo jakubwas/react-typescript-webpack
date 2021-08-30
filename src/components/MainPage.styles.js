@@ -20,5 +20,12 @@ export const StyledImage = styled.img`
 
 export const StyledWebpackConfig = styled.div`
   margin-top: 30px;
-`;
+  display: flex;
+  align-items: center;
 
+  span {
+    margin-right: 20px;
+    font-size: 18px;
+    width: 100px;
+  }
+`;

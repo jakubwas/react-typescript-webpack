@@ -3,7 +3,12 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: ['plugin:react/recommended', 'airbnb', 'plugin:prettier/recommended'],
+  extends: [
+    'plugin:react/recommended',
+    'airbnb',
+    'plugin:import/recommended',
+    'plugin:prettier/recommended',
+  ],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -30,7 +35,8 @@ module.exports = {
   settings: {
     'import/resolver': {
       alias: {
-        map: [['@', path.resolve(__dirname, 'src')]],
+        map: [['@components', './src/components']],
+        extensions: ['.jsx', '.js', '.json'],
       },
     },
   },

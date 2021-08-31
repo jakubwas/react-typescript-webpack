@@ -8,24 +8,28 @@
 - [Webpack Loaders](#webpack-loaders)
   - [Styling](#styling)
   - [File](#file)
+- [Environment variables](#environment-variables)
 
 # Setup React
 
-- Create _package.json_ file in the root directory:
+- Create *package.json* file in the root directory:
 
   `npm init`
 
-- Create src folder and add three files there:
+- Create **src** folder and add this files there:
 
-  - index.html
-  - index.js
-  - App.js
+  - *index.jsx*
+  - *App.jsx*
+
+- Create **public** folder and add this files there:
+  
+  - *index.html*
 
 - Install react and react-dom libraries:
 
   `npm install react react-dom`
 
-- Add the code below to _src/App.js_ file:
+- Add the code below to **src**/*App.jsx* file:
 
   ```
     import React from "react";
@@ -37,7 +41,7 @@
     export default App;
   ```
 
-- Add the code below to _src/index.html_ file:
+- Add the code below to **public**/*index.html* file:
 
   ```
   <!DOCTYPE html>
@@ -53,7 +57,7 @@
     </html>
   ```
 
-- Add the code below to _src/index.js_ file:
+- Add the code below to **src**/*index.jsx* file:
 
   ```
     import React from 'react';
@@ -76,7 +80,11 @@
 
   ` npm install @babel/core babel-loader --save-dev`
 
-- Create webpack.config.js file:
+- Create webpack configurations files for different environments:
+    - development: *webpack.config.dev.js*
+    - production: *webpack.config.prod.js*
+  
+  And add the code below to each of this files:
 
   ```
     module.exports = {
@@ -84,6 +92,13 @@
       output: {
         path:path.resolve(__dirname, "dist"),
       },
+      // mode: 'production' or 'development'
+       mode: '',
+      // Only for development
+      //  devServer: {
+      //    port: 3000,
+      //    open: true,
+      //  },
       module: {
         rules: [
           {
@@ -100,7 +115,7 @@
       },
       plugins: [
         new HtmlWebpackPlugin({
-          template: path.join(__dirname, "src", "index.html"),
+          template: path.join(__dirname, "public", "index.html"),
         }),
       ],
     }
@@ -166,3 +181,40 @@ Highly recommended webpack file loaders:
     use: ["file-loader"],
   }
 ```
+
+# Environment variables
+
+Create files for different environments:
+
+- development: **.env.development**
+- production: **.env.production**
+
+Instal dotenv in order to handle this files: 
+
+`npm install dotenv --save-dev`
+
+And add the code below to the webpack configuration (insert correct env file name in envPath variable):
+
+```
+ module.exports = () => {
+  const currentPath = path.join(__dirname);
+  const envPath = `${currentPath}/.env.development`;
+  const fileEnv = dotenv.config({ path: envPath }).parsed;
+  const envKeys = Object.keys(fileEnv).reduce((prev, next) => {
+    prev[`process.env.${next}`] = JSON.stringify(fileEnv[next]);
+    return prev;
+  }, {});
+
+  ...
+
+  return {
+    //
+    // webpack configuration
+    //
+    plugins: [
+      new webpack.DefinePlugin(envKeys),
+    ],
+  }
+ }
+```
+

@@ -1,4 +1,4 @@
-## Step by Step Guide to setup React with Webpack
+## React with Webpack configuration
 
 ## Table of contents
 
@@ -9,7 +9,6 @@
   - [Styling](#styling)
   - [File](#file)
 - [Environment variables](#environment-variables)
-- [ESLint & Prettier](#eslint--prettier)
 
 # Setup React
 
@@ -218,9 +217,3 @@ And add the code below to the webpack configuration (insert correct env file nam
   }
  }
 ```
-
-# ESLint & Prettier
-
-
-
-

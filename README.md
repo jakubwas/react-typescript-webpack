@@ -9,6 +9,7 @@
   - [Styling](#styling)
   - [File](#file)
 - [Environment variables](#environment-variables)
+- [ESLint & Prettier](#eslint--prettier)
 
 # Setup React
 
@@ -127,8 +128,8 @@ Add scripts to package.json that will allow you to build and run the app:
 
 ```
 "scripts": {
-  "dev": "webpack serve",
-  "build": "webpack",
+  "dev": "webpack serve --config webpack.config.dev.js",
+  "build": "webpack --config webpack.config.prod.js",
   ...
 }
 ```
@@ -217,4 +218,9 @@ And add the code below to the webpack configuration (insert correct env file nam
   }
  }
 ```
+
+# ESLint & Prettier
+
+
+
 
